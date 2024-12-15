@@ -235,8 +235,8 @@ class Pet: ObservableObject {
 
     private func regenerateEnergy() {
         let inactivityTime = Date().timeIntervalSince(lastInteractionTime)
-        if inactivityTime >= 30 { // After 30 seconds of no interaction
-            energyDouble = min(energyDouble + 0.1 / 60, 100) // 0.1 energy per minute
+        if inactivityTime >= 30 { // After N seconds of no interaction
+            energyDouble = min(energyDouble + 0.1 / 60, 100) // 0.1 energy per sec
             energy = Int(energyDouble)
             imageName = "pet_sleeping"
         }
@@ -279,6 +279,9 @@ class Pet: ObservableObject {
             imageName = "pet_thirsty" 
         } else if energy < 30 && energy > 1{
             mood = "Tired"
+            if imageName != "pet_sleeping"{
+              imageName = "pet_tired"
+            }
         } else {
             mood = "Happy"
         }
