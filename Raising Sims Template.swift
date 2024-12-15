@@ -271,13 +271,13 @@ class Pet: ObservableObject {
     }
 
     private func updateMood() {
-        if hunger < 30 || hunger > 1{
+        if hunger < 30 && hunger > 1{
             mood = "Hungry"
             imageName = "pet_hungry"
-        } else if hydration < 30 || hydration > 1{
+        } else if hydration < 30 && hydration > 1{
             mood = "Thirsty"
             imageName = "pet_thirsty" 
-        } else if energy < 30 || energy > 1{
+        } else if energy < 30 && energy > 1{
             mood = "Tired"
         } else {
             mood = "Happy"
