@@ -191,22 +191,30 @@ class Pet: ObservableObject {
         switch type {
         case .snack:
             happinessDouble = min(happinessDouble + Double(snackHappinessBoost), 100)
+          // Show pet_eatting image temporarily
             hungerDouble = min(hungerDouble + Double(snackHungerBoost), 100)
             imageName = "pet_eatting"
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {self.updateImageName()}
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+              self.updateImageName()
+            }
         case .petFood:
             hungerDouble = min(hungerDouble + Double(petFoodHungerBoost), 100)
+          // Show pet_eatting image temporarily
             imageName = "pet_eatting"
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {self.updateImageName()}
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+              self.updateImageName()
+            }
         case .water:
             hydrationDouble = min(hydrationDouble + Double(waterHydrationBoost), 100)
+          // Show pet_drinking image temporarily
             imageName = "pet_drinking"
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {self.updateImageName()}
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+              self.updateImageName()
+            }
         }
         happiness = Int(happinessDouble)
         hunger = Int(hungerDouble)
         hydration = Int(hydrationDouble)
-        updateImageName()
     }
 
     func play() {
@@ -230,6 +238,7 @@ class Pet: ObservableObject {
         if inactivityTime >= 30 { // After 30 seconds of no interaction
             energyDouble = min(energyDouble + 0.1 / 60, 100) // 0.1 energy per minute
             energy = Int(energyDouble)
+            imageName = "pet_sleeping"
         }
     }
 
