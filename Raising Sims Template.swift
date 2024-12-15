@@ -22,7 +22,7 @@ struct ContentView: View {
                         ZStack {
                             Image("text_bg")
                                 .resizable()
-                                .frame(height: 50)
+                                .frame(width: 200, height: 50)
                             Text("Pet's Mood: \(pet.mood)")
                                 .font(.headline)
                                 .foregroundColor(.white)
@@ -64,7 +64,7 @@ struct ContentView: View {
                         Button(action: { pet.play() }) {
                             Image("button_play")
                                 .resizable()
-                                .frame(width: 200, height: 50)
+                                .frame(width: 200, height: 60)
                         }
                     }
                 }
@@ -116,7 +116,7 @@ struct ContentView: View {
         ZStack {
             Image("text_bg")
                 .resizable()
-                .frame(height: 40)
+                .frame(width: 200, height: 40)
             HStack {
                 Text("\(label): \(value)%")
                     .foregroundColor(.white)
