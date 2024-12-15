@@ -192,10 +192,16 @@ class Pet: ObservableObject {
         case .snack:
             happinessDouble = min(happinessDouble + Double(snackHappinessBoost), 100)
             hungerDouble = min(hungerDouble + Double(snackHungerBoost), 100)
+            imageName = "pet_eatting"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {self.updateImageName()}
         case .petFood:
             hungerDouble = min(hungerDouble + Double(petFoodHungerBoost), 100)
+            imageName = "pet_eatting"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {self.updateImageName()}
         case .water:
             hydrationDouble = min(hydrationDouble + Double(waterHydrationBoost), 100)
+            imageName = "pet_drinking"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {self.updateImageName()}
         }
         happiness = Int(happinessDouble)
         hunger = Int(hungerDouble)
